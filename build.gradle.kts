@@ -5,12 +5,22 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.5.32"
   	kotlin("plugin.spring") version "1.5.32"
+	id("java")
 }
 
 group = "io.paketo"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
-
+springBoot {
+    mainClassName = "io.paketo.demo.DemoApplication"
+}
+jar {
+    manifest {
+        attributes(
+                "Main-Class": "io.paketo.demo.DemoApplication"
+        )
+    }
+}
 repositories {
 	mavenCentral()
 }
